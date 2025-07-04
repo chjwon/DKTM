@@ -1,6 +1,7 @@
 from keyword_extract import get_KeyBert_result, get_tf_idf_result
 import numpy as np
 
+from topic_model import get_BERTopic_result, get_Top2vec_result
 
 def test_keybert(mock_doc):
     mock_result = get_KeyBert_result(mock_doc)
@@ -11,6 +12,7 @@ def test_keybert(mock_doc):
         assert isinstance(res[0], tuple), f"Expected tuple, got {type(res[0])}"
         assert isinstance(res[0][0], str), f"Expected str, got {type(res[0][0])}"
         assert isinstance(res[0][1], float), f"Expected float, got {type(res[0][1])}"
+        
 def test_tf_idf(mock_doc):
     mock_result = get_tf_idf_result(mock_doc)
     for res in mock_result:
